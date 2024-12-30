@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MV ElliteIn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+
+        body{
+            background-color: antiquewhite;
+        }
+
+        /*Navigation*/
+        nav{
+            background-color: saddlebrown;
+            color:burlywood;
+            padding:10px;
+            text-align: center;
+        }
+        nav a{
+            color:burlywood;
+            text-decoration:none;
+            padding: 20px 30px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover{
+            background-color: bisque;
+            color:black;
+        }
+       /*Image Gallery*/
+        div.Image_gallery{
+            background-color: antiquewhite;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 5px;
+            position: relative;
+        }
+        div.Image_gallery img{
+            padding: 2px;
+            width: 40%;
+            Height:20%;
+        }
+
+        /*Check availability*/
+        #availability_container{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: saddlebrown;
+            color:burlywood;
+            padding: 20px;
+        }
+
+        .availability_heading{
+            flex:20% 20% 50%;
+            text-align: center;
+            background-color: antiquewhite;
+            color: saddlebrown;
+            font-size: larger;
+        }
+
+        .form_container{
+            flex:0 20% 80%;
+            background-color:saddlebrown;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: gold;
+        }
+
+        form{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-field p{
+            margin:0;
+            color:beige;
+            font-size: 18px;
+        }
+
+        .form-field select,
+        .form-field input{
+            width:100%;
+            padding: 18px;
+            box-sizing: border-box;
+            color:brown;
+            background-color: beige;
+        }
+
+        .submit-button{
+            color:red;
+            border:none;
+            padding: 2px;
+            cursor: pointer;
+            width: 30%;
+            font-size:50px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover{
+            color: darkgreen;
+            text-decoration: underline;
+        }
+
+
+        h1{
+            color:saddlebrown;
+            text-align: center;
+        }
+    /*general*/
+        .container {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap; 
+        }
+
+        .room-list {
+            display: inline-block;
+        }
+
+       .card {
+        display: inline-block;
+        box-shadow: 0 4px 8px 0 rgba(231, 212, 11, 0.2);
+        padding: 10px;
+        text-align: center;
+        background-color:rgb(221, 165, 86);
+        margin: 0 25px; 
+        width: 27%; 
+        height: 75%; 
+        overflow: hidden;
+        }
+
+        .card:hover {
+         transform: translateY(-5px); /* Move the card slightly up */
+         box-shadow: 0 8px 16px 0 rgba(230, 175, 26, 0.4); 
+          }
+
+
+
+        .card img {
+        max-width: 100%;
+        height: auto;
+        }
+
+       .card h2 {
+        margin-top: 10px;
+        font-size: 45px;
+        color: saddlebrown;
+        text-decoration: none;
+
+
+        }
+        .card a{
+            text-decoration: none;
+        }
+    
+        .card ul{
+            color: saddlebrown;
+            text-align: left;
+            font-size: 20px;
+        }
+
+       .card span {
+        display: block;
+        color:saddlebrown;
+        text-decoration:none;
+        font-size:25px;
+        font-weight: bold;
+        }
+        
+        /* Footer */
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: saddlebrown;
+            color: burlywood;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar-->
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="About Us.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="Bookings.html"><i class="fas fa-calendar-alt"></i> Bookings</a>
+        <a href="Contact Us.html"><i class="fas fa-envelope"></i> Contact Us</a>
+    </nav>
+    
+
+   <!--Scrolling Gallery-->
+   <div class="Image_gallery">
+    <img src="photos/Hotel Img lawn.jpg">
+    <img src="photos/hotel img tired.jpg">
+    <img src="photos/hotel img single bed.jpg">
+    <img src="photos/hotel img1.jpg">
+    <img src="photos/hotel img3.jpg">
+    <img src="photos/hotel img 7.jpg">
+   </div>
+   
+   <!--Check Availabilty Container-->
+   <div id=" availability_container">
+
+    <div class="availability_heading">
+        <h2>ℂ𝕙𝕖𝕔𝕜 𝔸𝕧𝕒𝕚𝕝𝕒𝕓𝕚𝕝𝕥𝕪</h2>
+    </div>
+    <!--Block-->
+    <div class="form_container">
+        <form action="book-now" method="post">
+            <!--Room type-->
+            <div class="form-field">
+                <p>Room Type</p>
+                <select style="color: brown;">
+                    <option>Select a Room</option>
+                    <option value="1"> 1st room</option>
+                    <option value="2">2nd room</option>
+                    <option value="3"> 3rd room</option>
+                    <option value="4">4 th room</option>
+                </select>
+            </div>
+            <!--Arrival Date-->
+            <div class="form-field">
+                <p>Arrival Date</p>
+                <input id="datepicker1" name="Text" type="date" value="Select Date" onFocus="this.value='';" onblur="if(this.value=='') {this.value='dd/mm/yyyy'}" required="" style="color: brown;">
+
+            </div>
+            <!--Departure Date-->
+            <div class="form-field">
+                <p>Departure Date</p>
+                <input id="datepicker2" name="Text" type="date" value="Select Date" onFocus="this.value='';" onblur="if(this.value=='') {this.value='dd/mm/yyyy'}" required="" style="color: brown;">
+            </div>
+
+            <div class="form-field submit-button">
+                <input type="submit" value="Check Availability">
+            </div>
+
+
+        </form>
+    </div>
+   </div>
+   
+
+<h1> ℝ𝕆𝕆𝕄𝕊</h1>
+
+
+<!--Banner Button-->
+<div class="banner-bottom">
+    <div class="container">    
+        <div class="room-grid">
+            <ul class="room-list">
+                <li class="card">
+                    <div class="room-item">
+                        <a href="Bookings.html" target="">
+                            <img src="photos/hotel img single bed.jpg" alt="Executive Room">
+                            <h2>𝙀𝙭𝙚𝙘𝙪𝙩𝙞𝙫𝙚 𝙍𝙤𝙤𝙢</h2>
+                            <p>
+                            <ul>
+                                <li>144 sq.ft</li>
+                                <li>Max 3 Guests</li>
+                            </ul>
+                            </p>
+                            <span>Starting from Rs.1800</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="room-item">
+                        <a href="Bookings.html" target="">
+                            <img src="photos/hotel img1.jpg" alt="Deluxe Room">
+                            <h2>𝘿𝙚𝙡𝙪𝙭𝙚 𝙍𝙤𝙤𝙢</h2>
+                            <p>
+                            <ul>
+                                <li>225 sq.ft</li>
+                                <li>Max 3 Guests</li>
+                            </ul>
+                            </p>
+                            <span>Starting from Rs.2400</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="room-item">
+                        <a href="Bookings.html" target="">
+                            <img src="photos/hotel img 6.jpg" alt="Suite Room">
+                            <h2>𝙎𝙪𝙞𝙩𝙚 𝙍𝙤𝙤𝙢</h2>
+                            <p>
+                            <ul>
+                                <li>400 sq.ft</li>
+                                <li>Max 4 Guests</li>
+                            </ul>
+                            </p>
+                            <span>Starting from Rs.2800</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+    
+var scrollInterval;
+
+function startAutoScroll() {
+    var gallery = document.querySelector('.Image_gallery');
+    var scrollAmount = 2; // Adjust scroll speed as needed
+    var scrollPosition = 0; // Initialize scroll position
+    scrollInterval = setInterval(function () {
+        gallery.scrollLeft = scrollPosition;
+        scrollPosition += scrollAmount;
+        if (scrollPosition >= gallery.scrollWidth - gallery.clientWidth) {
+            scrollPosition = 0;
+        }
+    }, 50); // Adjust scroll interval as needed
+}
+
+function stopAutoScroll() {
+    clearInterval(scrollInterval);
+}
+
+// Start automatic scrolling when the page loads
+window.addEventListener('load', function () {
+    startAutoScroll();
+});
+
+// Optionally, you can stop auto-scrolling when the user hovers over the gallery
+var gallery = document.querySelector('.Image_gallery');
+gallery.addEventListener('mouseenter', function () {
+    stopAutoScroll();
+});
+
+gallery.addEventListener('mouseleave', function () {
+    startAutoScroll();
+});
+</script>
+   
+
+
+<!-- Footer -->
+<div class="footer">
+    <p>All Rights Reserved</p>
+</div>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: saddlebrown;
+            color: burlywood;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: burlywood;
+            text-decoration: none;
+            padding: 20px 30px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: bisque;
+            color: black;
+        }
+
+        /* Google Maps */
+        .Google_map {
+            padding-bottom: 50%;
+            position: relative;
+            height: 50%;
+            margin: 18px;
+        }
+
+        .Google_map iframe {
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
+        }
+
+        /* Contact Container */
+        .Contact_container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 10px; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Contact Card */
+        .Contact_card {
+            background-color:rgb(236, 210, 176);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            animation: fadeIn 1s ease;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Contact Image */
+        .Contact_img {
+            flex: 0 0 300px; /* Adjust image width */
+            margin-right: 20px;
+        }
+
+        .Contact_img img {
+            width: 100%;
+            border-radius: 10px;
+            animation: fadeInLeft 1s ease;
+        }
+
+        /* Contact Text */
+        .Contact_text {
+            flex: 1;
+        }
+
+
+        .Contact_text h1{
+            color:saddlebrown;
+        }
+
+        .Contact_text p {
+            margin: 0;
+            margin-bottom: 10px;
+            color: #202020;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .Contact_text strong {
+            color: saddlebrown;
+        }
+
+        
+
+
+        /* Footer */
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: saddlebrown;
+            color: burlywood;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+
+       
+
+        /* Connect Card */
+.Connect_card {
+    background-color: rgb(223, 191, 148);
+    padding: 20px;
+    border-radius: 20px;
+    border-color: saddlebrown;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column; /* Adjust to stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    margin: 0 auto; /* Center the container */
+    max-width: 600px; /* Limit container width */
+}
+
+/* Connect Text */
+.Connect_text {
+    width: 100%; /* Occupy full width */
+    text-align: center; /* Center align text */
+    margin-bottom: 20px; /* Add some space at the bottom */
+}
+
+.Connect_text h1 {
+    color: saddlebrown;
+    margin-bottom: 10px; /* Add space below heading */
+}
+
+.Connect_text p {
+    margin: 0;
+    margin-bottom: 10px;
+    color: #202020;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.Connect_text strong {
+    color: saddlebrown;
+}
+
+/* Form Styling */
+.Connect_text form {
+    width: 100%;
+    text-align: center; 
+    color: saddlebrown;
+}
+
+.Connect_text .control-group {
+    margin-bottom: 20px;
+}
+
+.Connect_text .control-group label {
+    font-weight: bold;
+    display: block; /* Display label as block for better spacing */
+    margin-bottom: 5px; /* Add space below label */
+}
+
+.Connect_text .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.Connect_text .btn-primary {
+    background-color: saddlebrown;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+.Connect_text .btn-primary:hover {
+    background-color: rgb(223, 162, 118);
+}
+
+/* Container for contact and connect boxes */
+.boxes-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 100px; /* Adjust margin to position it beside the contact card */
+    margin-right: 100px; /* Adjust margin to position it beside the contact card */
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="About Us.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="Bookings.html"><i class="fas fa-calendar-alt"></i> Bookings</a>
+    <a href="Contact Us.html"><i class="fas fa-envelope"></i> Contact Us</a>
+</nav>
+
+<!-- Google Maps -->
+<div class="Google_map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.4121139253125!2d80.43885307490933!3d16.301873784411843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a358b02f1d197ef%3A0xee78e25b5b1bc5a0!2sMV%20Elite%20Inn%20hotel!5e0!3m2!1sen!2sin!4v1710318665881!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<!-- Container for contact and connect boxes -->
+<div class="boxes-container">
+    <!-- Contact Card -->
+    <div class="Contact_card">
+        <!-- Contact Image -->
+        <div class="Contact_img">
+            <img src="photos/hotel img 9.jpg" alt="Contact Image">
+        </div>
+        <!-- Contact Text -->
+        <div class="Contact_text">
+            <h1>Contact Us</h1>
+            <p><strong>Phone:</strong> +91 9885133985, +91 9581813985, 0863 2213985</p>
+            <p><strong>Email:</strong> <a href="mailto:MVElliteIn@gmail.com">MVElliteIn@gmail.com</a></p>
+            <p><strong>Address:</strong><br>
+                MV ElliteIn,<br>
+                Arundalpet 1/2 Ln,<br>
+                Opp to Railway Station,<br>
+                Andhra Pradesh, India.</p>
+        </div>
+    </div>
+
+    <!-- Connect With Us Card -->
+    <div class="Connect_card">
+        <!-- Connect Text -->
+        <div class="Connect_text">
+            <h1>Connect With Us</h1>
+            <p>Stay updated with our latest news and promotions by subscribing to our newsletter.</p>
+            <form method="POST">
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label class="contact-p1">Full Name:</label>
+                        <input type="text" class="form-control" name="name" id="name" required data-validation-required-message="Please enter your full name.">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label class="contact-p1">Phone Number:</label>
+                        <input type="text" class="form-control" name="ph" id="ph" required data-validation-required-message="Please enter your phone number.">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label class="contact-p1">Email Address:</label>
+                        <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Please enter your email address.">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <button type="submit" name="subscribe_submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="footer">
+    <p>All Rights Reserved</p>
+</div>
+
+</body>
+</html>

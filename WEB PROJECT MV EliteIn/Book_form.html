@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookings</title>
+  <style>
+    /* CSS styles */
+
+    body{
+        background-color: rgb(153, 93, 50);
+    }
+
+    
+    .container {
+      margin: 20px auto;
+      max-width: 1000px;
+      padding: 20px;
+      border: 1px solid #eac3c3;
+      border-radius: 5px;
+      background-color: bisque;
+      color:saddlebrown;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .form-container {
+      width: 48%;
+      font-size: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+      background-color: saddlebrown;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    input[type="submit"]:hover {
+      background-color: rgb(143, 101, 71);
+    }
+    .pay-at-property-btn {
+      background-color:rgb(143, 101, 71);
+    }
+    .pay-at-property-btn:hover {
+      background-color: rgb(143, 101, 71);
+    }
+    .Rates-address {
+      width: 48%;
+    }
+    .Rates-address h3 {
+      margin-top: 0;
+      font-size: 25px;
+    }
+    .Rates-address ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .Rates-address ul li {
+      margin-bottom: 10px;
+    }
+    .Rates-address p {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="form-container">
+    <h2>Bookings</h2>
+    <form name="bookingForm" id="bookingForm" method="post" action="#">
+      <div class="form-group">
+        <label for="checkin">Check-in:</label>
+        <input id="checkin" name="checkin" type="date" value="YYYY-MM-DD" onFocus="this.value='';" onblur="if(this.value=='') {this.value='YYYY-MM-DD'}" required style="color: brown;">
+      </div>
+      <div class="form-group">
+        <label for="checkout">Check-out:</label>
+        <input id="checkout" name="checkout" type="date" value="YYYY-MM-DD" onFocus="this.value='';" onblur="if(this.value=='') {this.value='YYYY-MM-DD'}" required style="color: brown;">
+      </div>
+
+      <div class="form-group">
+        <label for="roomtype">Room Type:</label>
+        <select name="roomtype" id="roomtype" required>
+          <option value="">Select Room Type</option>
+          <option value="Executive room">Executive room</option>
+          <option value="Deluxe room">Deluxe room</option>
+          <option value="Suite room">Suite room</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="noofrooms">Number of Rooms:</label>
+        <select name="noofrooms" id="noofrooms" required>
+          <option value="">Select Number of Rooms</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="totalCost">Total Cost:</label>
+        <input type="text" name="totalCost" id="totalCost" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label for="cname">Name:</label>
+        <input type="text" name="cname" id="cname" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <label for="cemail">Email:</label>
+        <input type="email" name="cemail" id="cemail" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <label for="phno">Mobile No:</label>
+        <input type="text" name="phno" id="phno" placeholder="Your Mobile Number" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="PAY NOW">
+        <input type="submit" value="PAY AT PROPERTY" class="pay-at-property-btn">
+      </div>
+    </form>
+  </div>
+
+  <!-- Rates and Address -->
+  <div class="Rates-address">
+    <h3>Rates</h3>
+    <ul>
+      <li>Executive room - Rs 1800/-</li>
+      <li>Deluxe room - Rs 2400/-</li>
+      <li>Suite room - Rs 2800/-</li>
+    </ul>
+
+    <h3>Our Address</h3>
+    <p>
+      MV ElliteIn<br>
+      Arundalpet 1/2 Ln, <br>
+      Guntur-522002, Andhra Pradhesh, India <br>
+      Phone: +91 9581813985<br>
+      Email:MVElliteIn@gmail.com
+      
+    </p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Function to calculate total cost
+    function calculateTotalCost() {
+      var roomType = document.getElementById("roomtype").value;
+      var numberOfRooms = parseInt(document.getElementById("noofrooms").value);
+      var costPerRoom;
+  
+      // Assign cost based on room type
+      switch (roomType) {
+        case "Executive room":
+          costPerRoom = 1800;
+          break;
+        case "Deluxe room":
+          costPerRoom = 2400;
+          break;
+        case "Suite room":
+          costPerRoom = 2800;
+          break;
+        default:
+          costPerRoom = 0;
+      }
+  
+      // Calculate total cost
+      var totalCost = costPerRoom * numberOfRooms;
+  
+      // Display total cost
+      document.getElementById("totalCost").value = "Rs " + totalCost + "/-";
+    }
+  
+    // Event listeners for room type and number of rooms
+    document.getElementById("roomtype").addEventListener("change", calculateTotalCost);
+    document.getElementById("noofrooms").addEventListener("change", calculateTotalCost);
+  
+    // Initial calculation of total cost
+    calculateTotalCost();
+  });
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Function to validate form inputs
+    function validateForm() {
+      var checkin = document.getElementById("checkin").value;
+      var checkout = document.getElementById("checkout").value;
+      var roomtype = document.getElementById("roomtype").value;
+      var noofrooms = document.getElementById("noofrooms").value;
+      var cname = document.getElementById("cname").value;
+      var cemail = document.getElementById("cemail").value;
+      var phno = document.getElementById("phno").value;
+
+      // Check if any field is empty
+      if (checkin === "" || checkout === "" || roomtype === "" || noofrooms === "" || cname === "" || cemail === "" || phno === "") {
+        alert("Please fill in all fields");
+        return false;
+      }
+
+      // Check if email is valid
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(cemail)) {
+        alert("Please enter a valid email address");
+        return false;
+      }
+
+      // Check if mobile number is valid
+      var phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(phno)) {
+        alert("Please enter a valid 10-digit mobile number");
+        return false;
+      }
+
+      // If all validations pass, return true
+      return true;
+    }
+
+    // Event listener for form submission
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+      // Prevent default form submission
+      event.preventDefault();
+
+      // Validate form inputs
+      if (validateForm()) {
+        // If validation passes, submit the form
+        this.submit();
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>

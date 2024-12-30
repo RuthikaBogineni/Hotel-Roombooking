@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url(photos/l1.jpg);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: rgba(221, 200, 156, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 350px;
+            max-width: 90%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .login-options label {
+            margin-right: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .login-form {
+            width: 100%;
+        }
+
+        input[type=text], input[type=password], input[type=email] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0e7f57;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cancelbtn:hover {
+            background-color: #d32f2f;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+            font-size: 14px;
+        }
+
+        .container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .container button[type="submit"] {
+            margin-top: 16px;
+        }
+
+        p.signup {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        p.signup a {
+            color: #04AA6D;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        p.signup a:hover {
+            color: #0e7f57;
+        }
+
+        /* Additional styles for sign-up container */
+        .signup-container {
+            background-color: rgba(221, 200, 156, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 350px;
+            max-width: 90%;
+            display: none; /* Hide sign-up container by default */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="login-options">
+            <label>
+                <input type="radio" name="login-type" value="customer" checked> Customer
+            </label>
+            <label>
+                <input type="radio" name="login-type" value="owner"> Owner
+            </label>
+        </div>
+        <div class="login-form" id="loginForm">
+            <!-- Initial login form for Customer -->
+            <form action="#" method="post">
+                <div class="container">
+                    <label for="uname">Username</label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <label for="psw">Password</label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit">Login</button>
+
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+            </form>
+        </div>
+        <p class="signup">Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+    </div>
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form action="#" method="post">
+            <div class="container">
+                <label for="signup-uname">Username</label>
+                <input type="text" placeholder="Enter Username" name="signup-uname" required>
+
+                <label for="signup-email">Email</label>
+                <input type="email" placeholder="Enter Email" name="signup-email" required>
+
+                <label for="signup-psw">Password</label>
+                <input type="password" placeholder="Enter Password" name="signup-psw" required>
+
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+        <p class="signup">Already have an account? <a href="#" id="back-to-login">Back to Login</a></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+            const signupContainer = document.querySelector('.signup-container');
+            const signupLink = document.getElementById('signup-link');
+            const backToLoginLink = document.getElementById('back-to-login');
+
+            const customerForm = `
+                <!-- Customer login form -->
+                <form action="#" method="post">
+                    <div class="container">
+                        <label for="uname">Username</label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+
+                        <label for="psw">Password</label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <button type="submit">Login</button>
+
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
+                </form>
+            `;
+            const ownerForm = `
+                <!-- Owner login form -->
+                <form action="#" method="post">
+                    <div class="container">
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="Enter Email" name="email" required>
+
+                        <label for="psw">Password</label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <button type="submit">Login</button>
+
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
+                </form>
+            `;
+
+            // Function to switch between Customer and Owner forms
+            function switchLoginForm() {
+                const loginType = document.querySelector('input[name="login-type"]:checked').value;
+                if (loginType === 'customer') {
+                    loginForm.innerHTML = customerForm;
+                } else if (loginType === 'owner') {
+                    loginForm.innerHTML = ownerForm;
+                }
+            }
+
+            // Add event listener for radio button change
+            document.querySelectorAll('input[name="login-type"]').forEach((radio) => {
+                radio.addEventListener('change', switchLoginForm);
+            });
+
+            // Show sign up form on link click
+            signupLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                signupContainer.style.display = 'block';
+                loginForm.style.display = 'none';
+            });
+
+            // Show login form on back to login link click
+            backToLoginLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                signupContainer.style.display = 'none';
+                loginForm.style.display = 'block';
+            });
+        });
+
+
+
+            // Redirect to home page after successful login
+loginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Perform login authentication here
+    // For demonstration, let's assume authentication is successful
+    const loginType = document.querySelector('input[name="login-type"]:checked').value;
+    const username = document.querySelector('#customerLoginForm input[name="uname"]').value;
+    const password = document.querySelector('#customerLoginForm input[name="psw"]').value;
+    // Add your authentication logic here...
+
+    // Redirect to home page
+    if (loginType === 'customer') {
+        // Redirect to customer home page
+        window.location.href = 'index.html';
+    } else if (loginType === 'owner') {
+        // Redirect to owner home page
+        window.location.href = 'index.html';
+    }
+});
+
+    </script>
+</body>
+</html>
